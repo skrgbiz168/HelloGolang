@@ -1,0 +1,19 @@
+{
+    // IntelliSense を使用して利用可能な属性を学べます。
+    // 既存の属性の説明をホバーして表示します。
+    // 詳細情報は次を確認してください: https://go.microsoft.com/fwlink/?linkid=830387
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "debug on docker",
+            "type": "go",
+            "request": "attach",
+            "mode": "remote",
+            "remotePath": "/go/src/app", //Docker内のソースコード配置するパス。
+            "cwd": "${workspaceRoot}/src", //ホスト環境のソースコード配置するバス
+            "port": 2345,
+            "host": "localhost",
+            "showLog": true
+        }
+    ]
+}
