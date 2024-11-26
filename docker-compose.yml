@@ -14,9 +14,11 @@ services:
     volumes:
       - ./src:/go/src
     depends_on:
-      - dev-postgres
+      - db
+    networks:
+      - lesson
 
-  dev-postgres:
+  db:
     image: postgres:15.1-alpine
     container_name: dev-postgres
     ports:

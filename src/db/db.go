@@ -23,7 +23,6 @@ func NewDB() *gorm.DB {
 	url := fmt.Sprintf("host=%s user=%s password=%s dbname=%s port=%s sslmode=disable",
 		os.Getenv("POSTGRES_HOST"), os.Getenv("POSTGRES_USER"), os.Getenv("POSTGRES_PW"),
 		os.Getenv("POSTGRES_DB"), os.Getenv("POSTGRES_PORT"))
-	fmt.Println(url)
 	db, err := gorm.Open(postgres.Open(url), &gorm.Config{})
 	if err != nil {
 		log.Fatalln(err)
