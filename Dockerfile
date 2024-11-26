@@ -1,9 +1,7 @@
 FROM golang:1.23.3-alpine3.20
 
-ENV CGO_ENABLED=0
-
 # このコメント以後のコメントは[/go/src/app/]フォルダーにて実行させるように指定します
-WORKDIR /go/src/app/
+WORKDIR /go/src/
 
 # ホストPCの[./back]フォルダーの配置されたソースコードを[/go/src/app/]フォルダーにコピーします
 COPY ./src .

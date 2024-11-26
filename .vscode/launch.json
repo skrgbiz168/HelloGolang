@@ -9,7 +9,7 @@
             "type": "go",
             "request": "attach",
             "mode": "remote",
-            "remotePath": "/go/src/app", //Docker内のソースコード配置するパス。
+            "remotePath": "/go/src", //Docker内のソースコード配置するパス。
             "cwd": "${workspaceRoot}/src", //ホスト環境のソースコード配置するバス
             "port": 2345,
             "host": "localhost",

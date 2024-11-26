@@ -7,7 +7,7 @@
 ## 検証方法
 使用しているディレクトリに移動
 ```
-docker exec -it go-api-server /bin/sh
+docker exec -it go-app /bin/sh
 ```
 
 以下コマンドを実行(一例です)
