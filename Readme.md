@@ -13,7 +13,12 @@ docker exec -it go-app /bin/sh
 以下コマンドを実行(一例です)
 ```
 go run main.go
+
+GO_ENV=dev go run main.go
 ```
 
 ## 参考URL
-https://liginc.co.jp/blog/tech/638764
+https://liginc.co.jp/blog/tech/638764\
+
+大元のGitHub<br>
+https://github.com/GomaGoma676/echo-rest-api
