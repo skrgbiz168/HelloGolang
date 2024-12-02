@@ -6,16 +6,30 @@ services:
     platform: linux/x86_64
     hostname: localhost
     ports:
-      - 3000:3000 #　デバッグ用のポート
+      ## - 3000:3000 #　デバッグ用のポート フロントで被ったので一旦コメントアウト
       - 8080:8080
     tty: true
     build:
-      context: .
-      dockerfile: ./Dockerfile
+      context: ./golang/
+      dockerfile: Dockerfile
     volumes:
-      - ./src:/go/src
+      - ./golang:/go/src
     depends_on:
       - db
+    networks:
+      - lesson
+
+  frontend:
+    container_name: react-todo
+    build:
+      context: ./react-todo/
+      dockerfile: Dockerfile
+    volumes:
+      - ./react-todo:/usr/src/app
+    ports:
+      - "3000:3000"
+    tty: true
+    stdin_open: true
     networks:
       - lesson
 
