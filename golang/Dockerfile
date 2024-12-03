@@ -12,3 +12,9 @@ RUN apk upgrade --update && \
 
 # dlvツールのインストール
 RUN go install github.com/go-delve/delve/cmd/dlv@latest
+
+# 必要な依存関係をインストール
+RUN go mod tidy
+
+# 環境変数を設定しつつアプリケーションを起動
+CMD ["sh", "-c", "GO_ENV=dev go run main.go"]

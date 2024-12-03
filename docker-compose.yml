@@ -29,6 +29,8 @@ services:
     ports:
       - "3000:3000"
     tty: true
+    environment:
+      - WATCHPACK_POLLING=true
     stdin_open: true
     networks:
       - lesson
