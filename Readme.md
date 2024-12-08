@@ -17,6 +17,12 @@ go run main.go
 GO_ENV=dev go run main.go
 ```
 
+## DBの構築について
+docker-compose up -d --buildをした後、以下コマンドで構築してください
+```
+RUN GO_ENV=dev go run migrate/migrate.go
+```
+
 ## 参考URL
 https://liginc.co.jp/blog/tech/638764\
 
