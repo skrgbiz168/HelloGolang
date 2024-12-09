@@ -25,7 +25,7 @@ func NewRouter(uc controller.IUserController, tc controller.ITaskController) *ec
 		CookieHTTPOnly: true,
 		// CookieSameSite: http.SameSiteNoneMode,
 		CookieSameSite: http.SameSiteDefaultMode,
-		CookieMaxAge:   60,
+		CookieMaxAge:   1440000,
 	}))
 	e.POST("/signup", uc.SignUp)
 	e.POST("/login", uc.LogIn)

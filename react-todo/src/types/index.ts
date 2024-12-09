@@ -11,3 +11,9 @@ export type Credential = {
   email: string
   password: string
 }
+export type SignupCredential = {
+  email: string
+  password: string
+  name: string
+  age: number
+}

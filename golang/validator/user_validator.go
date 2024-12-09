@@ -30,5 +30,14 @@ func (uv *userValidator) UserValidate(user model.User) error {
 			validation.Required.Error("password is required"),
 			validation.RuneLength(6, 30).Error("limited min 6 max 30 char"),
 		),
+		validation.Field(
+			&user.Name,
+			validation.Required.Error("名前は必須です"),
+		),
+		validation.Field(
+			&user.Age,
+			validation.Required.Error("年齢は必須です"),
+			// is.Int.Error("数字で入力してください"),
+		),
 	)
 }

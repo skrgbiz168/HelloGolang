@@ -1,10 +1,13 @@
 import { useState, FormEvent } from 'react'
 import { CheckBadgeIcon, ArrowPathIcon } from '@heroicons/react/24/solid'
 import { useMutateAuth } from '../hooks/useMutateAuth'
+import { setInterval } from 'timers/promises'
 
 export const Auth = () => {
   const [email, setEmail] = useState('')
   const [pw, setPw] = useState('')
+  const [name, setName] = useState('')
+  const [age, setAge] = useState(20)
   const [isLogin, setIsLogin] = useState(true)
   const { loginMutation, registerMutation } = useMutateAuth()
 
@@ -20,6 +23,8 @@ export const Auth = () => {
         .mutateAsync({
           email: email,
           password: pw,
+          name: name,
+          age: age,
         })
         .then(() =>
           loginMutation.mutate({
@@ -37,7 +42,7 @@ export const Auth = () => {
           Todo app by React/Go(Echo)
         </span>
       </div>
-      <h2 className="my-6">{isLogin ? 'Login' : 'Create a new account'}</h2>
+      <h2 className="my-6">{isLogin ? 'ログイン' : 'アカウント作成'}</h2>
       <form onSubmit={submitAuthHandler}>
         <div>
           <input
@@ -48,6 +53,26 @@ export const Auth = () => {
             placeholder="Email address"
             onChange={(e) => setEmail(e.target.value)}
             value={email}
+          />
+        </div>
+        <div>
+          <input
+            className={`mb-3 px-3 text-sm py-2 border border-gray-300 ${isLogin?'hidden':''}`}
+            name="name"
+            type="text"
+            placeholder="テスト太郎3"
+            onChange={(e) => setName(e.target.value)}
+            value={name}
+          />
+        </div>
+        <div>
+          <input
+            className={`mb-3 px-3 text-sm py-2 border border-gray-300 ${isLogin?'hidden':''}`}
+            name="age"
+            type="number"
+            placeholder="20"
+            onChange={(e) => setAge(e.target.valueAsNumber)}
+            value={age}
           />
         </div>
         <div>
@@ -63,7 +88,7 @@ export const Auth = () => {
         <div className="flex justify-center my-2">
           <button
             className="disabled:opacity-40 py-2 px-4 rounded text-white bg-indigo-600"
-            disabled={!email || !pw}
+            disabled={!email || !pw || !name || !age}
             type="submit"
           >
             {isLogin ? 'Login' : 'Sign Up'}

@@ -2,7 +2,7 @@ import axios from 'axios'
 import { useNavigate } from 'react-router-dom'
 import { useMutation } from '@tanstack/react-query'
 import useStore from '../store'
-import { Credential } from '../types'
+import { Credential, SignupCredential } from '../types'
 import { useError } from '../hooks/useError'
 
 export const useMutateAuth = () => {
@@ -27,7 +27,7 @@ export const useMutateAuth = () => {
     }
   )
   const registerMutation = useMutation(
-    async (user: Credential) =>
+    async (user: SignupCredential) =>
       await axios.post(`${process.env.REACT_APP_API_URL}/signup`, user),
     {
       onError: (err: any) => {
