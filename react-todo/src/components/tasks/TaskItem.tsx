@@ -1,8 +1,8 @@
 import { FC, memo } from 'react'
 import { PencilIcon, TrashIcon } from '@heroicons/react/24/solid'
-import useStore from '../store'
-import { Task } from '../types'
-import { useMutateTask } from '../hooks/useMutateTask'
+import useStore from '../../store'
+import { Task } from '../../types'
+import { useMutateTask } from '../../hooks/useMutateTask'
 
 const TaskItemMemo: FC<Omit<Task, 'created_at' | 'updated_at'>> = ({
   id,

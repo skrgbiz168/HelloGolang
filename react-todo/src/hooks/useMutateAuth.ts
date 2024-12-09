@@ -15,7 +15,7 @@ export const useMutateAuth = () => {
     {
       onSuccess: () => {
         // 成功したら遷移する
-        navigate('/todo')
+        navigate('/dashboard')
       },
       onError: (err: any) => {
         if (err.response.data.message) {

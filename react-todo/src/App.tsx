@@ -1,7 +1,8 @@
 import { useEffect } from 'react';
 import { BrowserRouter, Route, Routes } from 'react-router-dom'
 import { Auth } from './components/Auth'
-import { Todo } from './components/Todo'
+import { DashBoard } from './components/DashBoard'
+import { Todo } from './components/tasks/Todo'
 import axios from 'axios';
 import { CsrfToken } from './types';
 
@@ -21,6 +22,7 @@ function App() {
     <BrowserRouter>
       <Routes>
         <Route path="" element={<Auth />} />
+        <Route path="/dashboard" element={<DashBoard />} />
         <Route path="/todo" element={<Todo />} />
       </Routes>
     </BrowserRouter>

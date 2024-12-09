@@ -4,10 +4,10 @@ import {
   ArrowRightOnRectangleIcon,
   ShieldCheckIcon,
 } from '@heroicons/react/24/solid'
-import useStore from '../store'
-import { useQueryTasks } from '../hooks/useQueryTasks'
-import { useMutateTask } from '../hooks/useMutateTask'
-import { useMutateAuth } from '../hooks/useMutateAuth'
+import useStore from '../../store'
+import { useQueryTasks } from '../../hooks/useQueryTasks'
+import { useMutateTask } from '../../hooks/useMutateTask'
+import { useMutateAuth } from '../../hooks/useMutateAuth'
 import { TaskItem } from './TaskItem'
 
 export const Todo = () => {
