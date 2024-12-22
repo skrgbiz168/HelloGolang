@@ -17,3 +17,8 @@ export type SignupCredential = {
   name: string
   age: number
 }
+export type User = {
+  email: string
+  name: string
+  age: number
+}

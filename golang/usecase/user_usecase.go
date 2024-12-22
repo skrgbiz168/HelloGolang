@@ -14,6 +14,7 @@ import (
 type IUserUsecase interface {
 	SignUp(user model.User) (model.UserResponse, error)
 	Login(user model.User) (string, error)
+	GetSelf(userId uint) (model.UserResponse, error)
 }
 
 type userUsecase struct {
@@ -47,7 +48,7 @@ func (uu *userUsecase) SignUp(user model.User) (model.UserResponse, error) {
 }
 
 func (uu *userUsecase) Login(user model.User) (string, error) {
-	if err := uu.uv.UserValidate(user); err != nil {
+	if err := uu.uv.LoginUserValidate(user); err != nil {
 		return "", err
 	}
 	storedUser := model.User{}
@@ -67,4 +68,18 @@ func (uu *userUsecase) Login(user model.User) (string, error) {
 		return "", err
 	}
 	return tokenString, nil
+}
+
+func (uu *userUsecase) GetSelf(userId uint) (model.UserResponse, error) {
+	loginUser := model.User{}
+	if err := uu.ur.GetSelf(&loginUser, userId); err != nil {
+		return model.UserResponse{}, err
+	}
+	resUser := model.UserResponse{
+		ID:    loginUser.ID,
+		Email: loginUser.Email,
+		Name:  loginUser.Name,
+		Age:   loginUser.Age,
+	}
+	return resUser, nil
 }

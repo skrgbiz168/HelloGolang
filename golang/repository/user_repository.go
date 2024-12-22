@@ -9,6 +9,7 @@ import (
 type IUserRepository interface {
 	GetUserByEmail(user *model.User, email string) error
 	CreateUser(user *model.User) error
+	GetSelf(user *model.User, id uint) error
 }
 
 type userRepository struct {
@@ -28,6 +29,13 @@ func (ur *userRepository) GetUserByEmail(user *model.User, email string) error {
 
 func (ur *userRepository) CreateUser(user *model.User) error {
 	if err := ur.db.Create(user).Error; err != nil {
+		return err
+	}
+	return nil
+}
+
+func (ur *userRepository) GetSelf(user *model.User, id uint) error {
+	if err := ur.db.Where("id=?", id).First(user).Error; err != nil {
 		return err
 	}
 	return nil

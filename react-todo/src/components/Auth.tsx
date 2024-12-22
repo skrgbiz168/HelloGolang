@@ -42,9 +42,12 @@ export const Auth = () => {
           Todo app by React/Go(Echo)
         </span>
       </div>
-      <h2 className="my-6">{isLogin ? 'ログイン' : 'アカウント作成'}</h2>
+      <h2 className="my-6 text-3xl font-extrabold">{isLogin ? 'ログイン' : 'アカウント作成'}</h2>
       <form onSubmit={submitAuthHandler}>
         <div>
+          <label className="block text-gray-700 text-sm font-bold">
+            メールアドレス
+          </label>
           <input
             className="mb-3 px-3 text-sm py-2 border border-gray-300"
             name="email"
@@ -55,9 +58,12 @@ export const Auth = () => {
             value={email}
           />
         </div>
-        <div>
+        <div className={`mt-2 ${isLogin?'hidden':''}`}>
+          <label className="block text-gray-700 text-sm font-bold">
+            名前
+          </label>
           <input
-            className={`mb-3 px-3 text-sm py-2 border border-gray-300 ${isLogin?'hidden':''}`}
+            className={`mb-3 px-3 text-sm py-2 border border-gray-300`}
             name="name"
             type="text"
             placeholder="テスト太郎3"
@@ -65,9 +71,13 @@ export const Auth = () => {
             value={name}
           />
         </div>
-        <div>
+        <div className={`mt-2 ${isLogin?'hidden':''}`}>
+          <label></label>
+          <label className="block text-gray-700 text-sm font-bold">
+            年齢
+          </label>
           <input
-            className={`mb-3 px-3 text-sm py-2 border border-gray-300 ${isLogin?'hidden':''}`}
+            className={`mb-3 px-3 text-sm py-2 border border-gray-300`}
             name="age"
             type="number"
             placeholder="20"
@@ -75,7 +85,10 @@ export const Auth = () => {
             value={age}
           />
         </div>
-        <div>
+        <div className="mt-2">
+          <label className="block text-gray-700 text-sm font-bold">
+            パスワード
+          </label>
           <input
             className="mb-3 px-3 text-sm py-2 border border-gray-300"
             name="password"
