@@ -101,7 +101,7 @@ export const Auth = () => {
         <div className="flex justify-center my-2">
           <button
             className="disabled:opacity-40 py-2 px-4 rounded text-white bg-indigo-600"
-            disabled={!email || !pw || !name || !age}
+            disabled={!email || !pw}
             type="submit"
           >
             {isLogin ? 'Login' : 'Sign Up'}

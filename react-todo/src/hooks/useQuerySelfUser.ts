@@ -5,16 +5,16 @@ import { useError } from '../hooks/useError'
 
 export const useQuerySelfUser = () => {
   const { switchErrorHandling } = useError()
-  const getTasks = async () => {
-    const { data } = await axios.get<User[]>(
+  const getUser = async () => {
+    const { data } = await axios.get<User>(
       `${process.env.REACT_APP_API_URL}/selfUser`,
       { withCredentials: true }
     )
     return data
   }
-  return useQuery<User[], Error>({
+  const query = useQuery<User, Error>({
     queryKey: ['Users'],
-    queryFn: getTasks,
+    queryFn: getUser,
     staleTime: Infinity,
     onError: (err: any) => {
       if (err.response.data.message) {
@@ -24,4 +24,7 @@ export const useQuerySelfUser = () => {
       }
     },
   })
+
+  const {data:user, isLoading} = query;
+  return { user, isLoading };
 }
