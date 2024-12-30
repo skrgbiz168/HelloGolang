@@ -19,6 +19,7 @@ func main() {
 	taskUsecase := usecase.NewTaskUsecase(taskRepository, taskValidator)
 	userController := controller.NewUserController(userUsecase)
 	taskController := controller.NewTaskController(taskUsecase)
-	e := router.NewRouter(userController, taskController)
+	selectUserController := controller.NewSelectUserController(userUsecase) // userUsecaseは仮
+	e := router.NewRouter(userController, taskController, selectUserController)
 	e.Logger.Fatal(e.Start(":8080"))
 }
