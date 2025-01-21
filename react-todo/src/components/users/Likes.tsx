@@ -10,7 +10,7 @@ import { useMutateTask } from '../../hooks/useMutateTask'
 import { useMutateAuth } from '../../hooks/useMutateAuth'
 import { TaskItem } from './TaskItem'
 
-export const Select = () => {
+export const UserLikes = () => {
   const queryClient = useQueryClient()
   const { editedTask } = useStore()
   const updateTask = useStore((state) => state.updateEditedTask)

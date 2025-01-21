@@ -3,7 +3,7 @@ import { BrowserRouter, Route, Routes } from 'react-router-dom'
 import { Auth } from './components/Auth'
 import { DashBoard } from './components/DashBoard'
 import { Todo } from './components/tasks/Todo'
-import { Select } from './components/users/Select'
+import { UserLikes } from './components/users/Likes'
 import axios from 'axios';
 import { CsrfToken } from './types';
 
@@ -25,7 +25,7 @@ function App() {
         <Route path="" element={<Auth />} />
         <Route path="/dashboard" element={<DashBoard />} />
         <Route path="/todo" element={<Todo />} />
-        <Route path="/userSelect" element={<Select />} />
+        <Route path="/userLikes" element={<UserLikes />} />
       </Routes>
     </BrowserRouter>
   );

@@ -24,7 +24,7 @@ export const DashBoard = () => {
       </div>
       )}
       <div className="flex items-center my-3">
-        <a href='/userSelect'>
+        <a href='/userLikes'>
           <button className="text-xl bg-blue-500 hover:bg-blue-700 text-white font-bold max-w-full w-72 py-2 px-10 rounded">
             ユーザ一覧
           </button>
